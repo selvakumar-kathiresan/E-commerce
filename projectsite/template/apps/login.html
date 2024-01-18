@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+{% extends 'apps/main.html' %}
+{% load static %}
+{% block content %}
+<head>
+	<title>Shopkart | Register</title>
+</head>
+<link rel="stylesheet" type="text/css" href="{%static "css/reg.css" %}">
+<body>
+	<section style="height: 100vh">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<h1 class="mb-3" style="margin-top: 100px;">User Login</h1>
+					<hr style="border-color: #b8bfc2;">
+					{% include 'apps/message.html' %}
+				</div>
+				<div class="col-5">
+				<form method="POST">
+					{% csrf_token %}
+					<div>
+						<label class="form-lable mb-2">User Name:</label><br>
+						<input type="text" name="username" id="username" class="form-control mb-4" placeholder="Enter User Name">
+					</div>
+					<div class="mb-4">
+						<label class="mb-2">Password:</label><br>
+						<input type="password" name="password" id="password" class="form-control mb-4" placeholder="Enter Password">
+					</div>
+					<div>
+						<button class="btn btn-primary"><a>Login</a></button>
+					</div>
+				</form>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+{% endblock content %}
+</html>

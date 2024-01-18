@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+{% extends 'apps/main.html' %}
+{% load static %}
+{% block content %}
+<head>
+	<title>Shopkart | Home</title>
+</head>
+<link rel="stylesheet" type="text/css" href="{%static "css/iex.css" %}">
+<body>
+	<header>
+		<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+			<div class="carousel-indicators">
+			    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true"      aria-label="Slide 1"></button>
+			    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+			    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+			    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+			</div>
+			<div class="carousel-inner">
+			    <div class="carousel-item active">
+			      <img src="{%static "/images/fashion2.jpg" %}">
+			    </div>
+			    <div class="carousel-item">
+			      <img src="{%static "/images/fashion8.jpg" %}">
+			    </div>
+			    <div class="carousel-item">
+			      <img src="{%static "/images/girl4.jpg" %}">
+			    </div>
+			    <div class="carousel-item">
+			      <img src="{%static "/images/fashion7.jpg" %}">
+			    </div>
+			</div>
+			<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			    <span class="visually-hidden">Previous</span>
+			</button>
+			<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+			    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+			    <span class="visually-hidden">Next</span>
+			</button>
+		</div>
+		<input class="searchbar" type="searchbar" name="searchbar" placeholder="Search">
+	</header>
+	<section style="height: 150vh">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<h1 class="mb-3" style="margin-top: 75px;">Latest Products</h1>
+					<hr style="border-color: #b8bfc2;">
+				</div>
+				{% for item in products %}
+				<div class="col-md-4 col-lg-3">
+					<div class="card my-3">
+						<img src="{{item.product_image.url}}" alt="Products">
+						<a href="{%url 'product_details' item.catagory.name item.name%}">
+						<div class="card-body">
+							<h5 class="card-title text-primary">{{item.name}}</h5>
+							<p class="card-text"><span class="old_price"><s>Rs.{{item.old_price | stringformat:'d'}}</s></span>
+							<span class="selling_price">Rs.{{item.selling_price | stringformat:'d'}}</span></p>
+						</div>
+						</a>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</section>
+</body>
+{% endblock content %}
+</html>

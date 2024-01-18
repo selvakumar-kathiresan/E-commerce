@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+{% extends 'apps/main.html' %}
+{% load static %}
+{% block content %}
+<head>
+	<title>Shopkart | collections</title>
+</head>
+<link rel="stylesheet" type="text/css" href="{%static "css/colt.css"%}">
+<body>
+	<header>
+		<section class="header">
+			<h1 class="best">Bestsellers</h1>
+			<p class="para">Our most popular products based on sales. Updated hourly.</p>
+			<button class="user"><a href="">Already user</a></button>
+			<button class="register"><a href="">Register</a></button>
+		</section>
+	</header>
+	<main>
+		<section class="bg-light py-4 my-3">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<h1 class="h1">Catagories</h1>
+						<hr style="border-color: #b8bfc2;">
+					</div>
+					{% for item in catagory %}
+					<div class="col-md-4 col-lg-3">
+						<div class="card my-3">
+							<img style="width: 100%" src="{{item.image.url}}" alt="Catagories">
+							<a href="{% url 'collections' item.name %}">
+							<div class="card-body">
+								<h5 class="card-title text-primary">{{item.name}}</h5>
+								<p class="card-text">{{item.description}}</p>
+							</div>
+							</a>
+						</div>
+					</div>
+					{% endfor %}
+				</div>
+			</div>
+		</section>
+	</main>
+</body>
+{% endblock content %}
+</html>

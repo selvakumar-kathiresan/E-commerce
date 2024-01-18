@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+{% extends 'apps/main.html' %}
+{% load static %}
+{% block content %}
+<head>
+	<title>Shopkart | Register</title>
+</head>
+<link rel="stylesheet" type="text/css" href="{%static "css/regi.css" %}">
+<body>
+	<section style="height: 100vh">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<h1 class="mb-3" style="margin-top: 100px;">New User Registration</h1>
+					<hr style="border-color: #b8bfc2;">
+					{% include 'apps/message.html' %}
+					<div class="container">
+						<div class="row">
+							<div class="col-6">
+							<form method="POST">
+								{% csrf_token %}
+								<div class="mb-4">
+									<label class="form-lable mb-2">Enter User Name:</label>
+									{{ form.username }}
+									{% if form.errors.username %}
+									<label style="font-size: 17px" class="text-danger">{{ form.errors.username }}</label>
+									{% endif %}
+								</div>
+								<div class="mb-4">
+									<label class="mb-2">Enter E-mail Address:</label>
+									{{form.email}}
+									{% if form.errors.email %}
+									<label class="text-danger">{{ form.errors.email }}</label>
+									{% endif %}
+								</div>
+								<div class="mb-4">
+									<label class="mb-2">Enter Your Password:</label>
+									{{form.password1}}
+									{% if form.errors.password1 %}
+										<label class="text-danger">{{ form.errors.password1 }}</label>
+									{% endif %}
+								</div>
+								<div class="mb-4">
+									<label class="mb-2">Enter Confirm password:</label>
+									{{form.password2}}
+									{% if form.errors.password2 %}
+									<label class="text-danger">{{ form.errors.password2 }}</label>
+									{% endif %}
+								</div>
+								<div>
+									<button class="btn btn-primary regi"><a>Register</a></button>
+								</div>
+								<div class="my-3">
+									<p class="user">Already user?<a href="/login">Log in</a></p>
+								</div>
+							</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+{% endblock content %}
+</html>

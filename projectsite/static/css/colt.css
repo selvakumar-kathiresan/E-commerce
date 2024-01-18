@@ -1,0 +1,45 @@
+*{
+	margin:0;
+	padding: 0;
+	box-sizing: border-box;
+}
+.header a{
+	text-decoration: none;
+	color: white;
+}
+.header{
+	color: gray;
+	font-size:20px;
+	margin-top: 100px;
+	text-align: center;
+}
+.user{
+	background-color: blue;
+	border-radius: 5px;
+	padding: 5px;
+}
+.header .register{
+	border-radius: 5px;
+	padding: 5px;
+	background-color: gray; 
+}
+.card a{
+	text-decoration: none;
+}
+.pic-box{
+	position: relative;
+}
+
+.hot{
+	background-color: red;
+	display: inline-block;
+	padding: 3px;
+	z-index: 10;
+	position: absolute;
+	top: 0;
+	right:12px;
+	font-weight: bold;
+	border-radius: 5px;
+	width: 50px;
+	text-align: center;
+}
